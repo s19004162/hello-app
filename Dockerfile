@@ -10,8 +10,8 @@ WORKDIR /home/appuser
 
 USER appuser
 
-COPY app.py /opt/
+COPY app.py /home/appuser
 
-ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
+ENTRYPOINT FLASK_APP=/home/appuser/app.py flask run --host=0.0.0.0 --port=8080
 
-CMD [ "python3", "/opt/app.py"]
+CMD [ "python3", "/home/appuser/app.py"]
