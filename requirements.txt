@@ -1,4 +1,4 @@
 ###### Requirements with Version Specifiers ######
 #   See https://www.python.org/dev/peps/pep-0440/#version-specifiers
-Flask==2.1.0
+Flask==2.0.1
 Flask-Bootstrap==3.3.7.1
