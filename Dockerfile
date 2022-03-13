@@ -1,11 +1,17 @@
-FROM ubuntu:16.04
+FROM python:3.7.3-stretch
 
-RUN apt-get update && apt-get install -y python3 python3-pip
+COPY requirements.txt /tmp/
 
-RUN pip3 install --upgrade pip
+RUN pip3 install -r /tmp/requirements.txt
 
-RUN pip3 install flask
+RUN useradd --create-home appuser
+
+WORKDIR /home/appuser
+
+USER appuser
 
 COPY app.py /opt/
+
+CMD [ "python", "/opt/app.py"]
 
 ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
